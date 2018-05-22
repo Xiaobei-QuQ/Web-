@@ -71,7 +71,7 @@ var Footer = {
     },
     render: function () {
         var _this = this
-        $.getJSON('http://api.jirengu.com/fm/getChannels.php')
+        $.getJSON('https://api.jirengu.com/fm/getChannels.php')
             .done(function(ret){
                 _this.renderFooter(ret.channels)
             })
@@ -146,7 +146,7 @@ var Fm = {
         var _this = this
         console.log('loadMusic')
         console.log(this.channelId)
-        $.getJSON('http://jirenguapi.applinzi.com/fm/getSong.php',{channel:this.channelId}).done(function (ret) {
+        $.getJSON('https://jirenguapi.applinzi.com/fm/getSong.php',{channel:this.channelId}).done(function (ret) {
             _this.song = ret['song'][0]
             console.log(_this.song)
             _this.setMusic()
@@ -155,7 +155,7 @@ var Fm = {
     },
     loadLyric(){
         var _this = this
-        $.getJSON('http://jirenguapi.applinzi.com/fm/getLyric.php',{sid: this.song.sid}).done(function (ret) {
+        $.getJSON('https://jirenguapi.applinzi.com/fm/getLyric.php',{sid: this.song.sid}).done(function (ret) {
             var lyric = ret.lyric
             var lyricObj = {}
             lyric.split('\n').forEach(function (line) {
